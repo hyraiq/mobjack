@@ -21,8 +21,9 @@ doctrine:
 when@test:
     doctrine:
         dbal:
+            logging: false
             driver: 'pdo_sqlite'
-            url: 'sqlite:///%kernel.cache_dir%/test_%env(default:TEST_TOKEN)%.db'
+            url: 'sqlite:///%kernel.cache_dir%/test.db'
             options:
                 'PRAGMA foreign_keys': 'ON'
 
