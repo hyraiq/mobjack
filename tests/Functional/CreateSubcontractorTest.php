@@ -4,19 +4,23 @@ namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
 class CreateSubcontractorTest extends AbstractWebTestCase
 {
+    use RefreshDatabaseTrait;
+
     public function testSubcontractorCreatedWithName(): void
     {
         $response = $this->postRequest('/subcontractor', ['name' => 'Concrete Bros.']);
 
         static::assertSame(201, $response->getStatusCode());
-        $content = (array) $response->getContent();
+        $content = $this->decodeResponse($response);
         static::assertArrayHasKey('id', $content);
 
-        $subcontractor = static::getContainer()->get(EntityManagerInterface::class)->find(Subcontractor::class, $content['id']);
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = static::getContainer()->get(EntityManagerInterface::class);
+        $subcontractor = $entityManager->find(Subcontractor::class, $content['id']);
         static::assertInstanceOf(Subcontractor::class, $subcontractor);
 
         static::assertSame('Concrete Bros.', $subcontractor->getName());
