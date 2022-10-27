@@ -6,7 +6,7 @@ services:
             - '8080:80'
         volumes:
             - './public:/var/www/html/public'
-            - './.docker/config/nginx.conf:/etc/nginx/conf.d/mobjack.conf'
+            - './.docker/config/nginx.conf:/etc/nginx/conf.d/default.conf'
         depends_on:
             - fpm
     fpm:
