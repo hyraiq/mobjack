@@ -12,7 +12,7 @@ class CreateSubcontractorTest extends AbstractWebTestCase
 
     public function testSubcontractorCreatedWithName(): void
     {
-        $response = $this->postRequest('/subcontractor', ['name' => 'Concrete Bros.']);
+        $response = $this->postRequest('/subcontractors', ['name' => 'Concrete Bros.']);
 
         static::assertSame(201, $response->getStatusCode());
         $content = $this->decodeResponse($response);

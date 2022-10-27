@@ -19,7 +19,7 @@ final class CreateSubcontractorController extends AbstractController
     ) {
     }
 
-    #[Route('/subcontractor', methods: ['POST'])]
+    #[Route('/subcontractors', methods: ['POST'])]
     public function __invoke(Request $request): Response
     {
         $model = $this->handler->parse($request, CreateSubcontractor::class);
