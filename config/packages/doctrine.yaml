@@ -21,7 +21,6 @@ doctrine:
 when@test:
     doctrine:
         dbal:
-            logging: false
             driver: 'pdo_sqlite'
             url: 'sqlite:///%kernel.cache_dir%/test.db'
             options:
