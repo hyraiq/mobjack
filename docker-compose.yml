@@ -1,0 +1,58 @@
+version: '3.9'
+services:
+    nginx:
+        image: nginx:stable-alpine
+        ports:
+            - '8080:80'
+        volumes:
+            - './public:/var/www/html/public'
+            - './.docker/config/nginx.conf:/etc/nginx/conf.d/mobjack.conf'
+        depends_on:
+            - fpm
+    fpm:
+        build:
+            context: .docker/
+            dockerfile: php.Dockerfile
+            target: fpm
+        volumes:
+            - './:/var/www/html'
+        depends_on:
+            - mysql
+        extra_hosts:
+            - host.docker.internal:host-gateway
+    mysql:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        command: '--sql-mode NO_ENGINE_SUBSTITUTION'
+        platform: linux/x86_64
+        volumes:
+            - ./var/mysql_data:/var/lib/mysql:delegated
+        ports:
+            - '3306:3306'
+        ulimits:
+            nproc: 65535
+            nofile:
+                soft: 26677
+                hard: 46677
+
+    # Helper services to run scripts
+    cli:
+        build:
+            context: .docker/
+            dockerfile: php.Dockerfile
+            target: cli
+        working_dir: /var/www/html
+        volumes:
+            - './:/var/www/html'
+            - '${HOME}/.config/composer:/root/.composer:delegated'
+            - '${HOME}/.cache/composer:/root/.cache/composer:delegated'
+    composer:
+        image: composer:latest
+        working_dir: /var/www/html
+        volumes:
+            - './:/var/www/html'
+        profiles: ['composer']
+
+# We don't use named volumes because they're very slow on MacOS
+volumes: {}
