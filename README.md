@@ -23,7 +23,11 @@ Backend technical challenge for ProcurePro
 
 Running tests:
 
-Either use `docker compose run php vendor/bin/phpunit` or click the play button in the test file in PhpStorm.
+Either use `docker compose run php make test` or click the play button in the test file in PhpStorm.
+
+Running psalm:
+
+`docker compose run php make psalm`
 
 Using postman:
 

@@ -13,6 +13,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Subcontractor|null findOneBy(array $criteria, array $orderBy = null)
  * @method Subcontractor[]    findAll()
  * @method Subcontractor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * @psalm-method list<Subcontractor>    findAll()
+ * @psalm-method list<Subcontractor>    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 final class SubcontractorRepository extends ServiceEntityRepository
 {

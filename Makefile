@@ -10,6 +10,10 @@ migrate:
 cache:
 	bin/console cache:clear
 
+.PHONY: test
+test:
+	vendor/bin/phpunit
+
 .PHONY: psalm
 psalm:
 	vendor/bin/psalm

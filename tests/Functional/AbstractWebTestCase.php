@@ -36,7 +36,7 @@ abstract class AbstractWebTestCase extends WebTestCase
      */
     protected function decodeResponse(Response $response): array
     {
-        return \json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
+        return (array) \json_decode((string) $response->getContent(), true, 512, JSON_THROW_ON_ERROR);
     }
 
     /**
@@ -53,7 +53,7 @@ abstract class AbstractWebTestCase extends WebTestCase
                 'CONTENT_TYPE' => 'application/json',
                 'HTTP_ACCEPT'  => 'application/json',
             ],
-            (string) \json_encode($payload, JSON_THROW_ON_ERROR)
+            \json_encode($payload, JSON_THROW_ON_ERROR)
         );
 
         return $this->client->getResponse();

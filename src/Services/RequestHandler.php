@@ -15,11 +15,13 @@ final class RequestHandler
     }
 
     /**
-     * @template T of object
+     * @template       T of object
      *
      * @psalm-param    class-string<T> $intoModel
      *
      * @psalm-return   T
+     *
+     * @throws BadRequestHttpException
      */
     public function parse(Request $request, string $intoModel): object
     {

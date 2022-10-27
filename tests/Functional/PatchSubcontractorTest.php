@@ -17,7 +17,7 @@ class PatchSubcontractorTest extends AbstractWebTestCase
         $originalUnletCost = $subcontractor->getUnletCost();
 
         $response = $this->patchRequest(
-            \sprintf('/subcontractors/%s', $subcontractor->getId()),
+            \sprintf('/subcontractors/%s', (string) $subcontractor->getId()),
             [
                 'name'        => 'Concrete Bros.',
                 'price'       => 560_000_00,
@@ -30,7 +30,7 @@ class PatchSubcontractorTest extends AbstractWebTestCase
         static::assertSame('Concrete Bros.', $subcontractor->getName());
         static::assertSame(560_000_00, $subcontractor->getPrice());
         static::assertNull($subcontractor->getDiscount());
-        static::assertNull(15_000_00, $subcontractor->getAdjustment());
+        static::assertSame(15_000_00, $subcontractor->getAdjustment());
         static::assertSame($originalUnletCost, $subcontractor->getUnletCost());
     }
 }
