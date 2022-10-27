@@ -37,7 +37,7 @@ services:
                 hard: 46677
 
     # Helper services to run scripts
-    cli:
+    php:
         build:
             context: .docker/
             dockerfile: php.Dockerfile
@@ -45,8 +45,6 @@ services:
         working_dir: /var/www/html
         volumes:
             - './:/var/www/html'
-            - '${HOME}/.config/composer:/root/.composer:delegated'
-            - '${HOME}/.cache/composer:/root/.cache/composer:delegated'
     composer:
         image: composer:latest
         working_dir: /var/www/html
