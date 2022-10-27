@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "9186c82c-1a8b-45f4-893f-7452fa9e4c09",
+		"name": "Mobjack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19379475"
+	},
+	"item": [
+		{
+			"name": "Create subcontractor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Concrete Bros.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/subcontractors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subcontractors"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "_",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch subcontractor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Concrete Bros. PTY LTD\",\n    \"price\": 1500000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/subcontractors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subcontractors",
+						"1"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "_",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subcontractors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "XDEBUG_SESSION",
+						"value": "_",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/subcontractors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subcontractors"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
