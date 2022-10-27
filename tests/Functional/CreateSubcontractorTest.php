@@ -29,4 +29,11 @@ class CreateSubcontractorTest extends AbstractWebTestCase
         static::assertNull($subcontractor->getAdjustment());
         static::assertNull($subcontractor->getUnletCost());
     }
+
+    public function testCannotCreateWithoutName(): void
+    {
+        $response = $this->postRequest('/subcontractors', []);
+
+        static::assertSame(400, $response->getStatusCode());
+    }
 }
