@@ -10,6 +10,10 @@ migrate:
 cache:
 	bin/console cache:clear
 
+.PHONY: psalm
+psalm:
+	vendor/bin/psalm
+
 .PHONY: fixtures
 fixtures:
 	bin/console hautelook:fixtures:load --no-bundles --no-interaction
