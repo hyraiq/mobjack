@@ -6,19 +6,7 @@
 /public/bundles/
 /var/
 /vendor/
-/src/.preload.php
 ###< symfony/framework-bundle ###
-
-###> frontend_v1 ###
-/frontend/fender/node_modules/
-/public/build/
-/public/stern/
-/public/pdfjs/
-/public/flashbag/
-/public/fonts/
-.fontello-session
-yarn-error.log
-###< frontend ###
 
 ###> phpstorm ###
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
@@ -49,38 +37,10 @@ yarn-error.log
 ###< phpstorm ###
 
 ###> build files ###
-.vagrant
 .DS_Store
 */.DS_Store
-
-/build/
 ###> build files ###
-
-###> friendsofphp/php-cs-fixer ###
-.php_cs.cache
-.php-cs-fixer.cache
-###< friendsofphp/php-cs-fixer ###
-
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
-
-###> squizlabs/php_codesniffer ###
-.phpcs-cache
-###< squizlabs/php_codesniffer ###
 
 ###> Microsoft backup files ###
 ~*.*
 ###< Microsoft backup files ###
-
-###> michaeldegroot/doctrine-encrypt-bundle ###
-.Halite.key
-###< michaeldegroot/doctrine-encrypt-bundle ###
-
-/dump.rdb
-/supervisord.log
-/supervisord.pid
-
-.plop/node_modules/
-node_modules/
