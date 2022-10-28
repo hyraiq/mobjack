@@ -7,6 +7,11 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
+/**
+ * Simple helper class to parse a request body into a type safe model. It utilises the Symfony Serializer in order to
+ * validate the data correctly handles an invalid request body by throwing a BadRequestHttpException which is caught
+ * by Symfony and turned into a HTTP 400 response.
+ */
 final class RequestHandler
 {
     public function __construct(

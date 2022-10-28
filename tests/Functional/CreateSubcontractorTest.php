@@ -6,7 +6,7 @@ use App\Entity\Subcontractor;
 use Doctrine\ORM\EntityManagerInterface;
 use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
-class CreateSubcontractorTest extends AbstractWebTestCase
+class CreateSubcontractorTest extends BaseWebTestCase
 {
     use RefreshDatabaseTrait;
 

@@ -5,7 +5,7 @@ namespace App\Tests\Functional;
 use App\Entity\Subcontractor;
 use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
-class PatchSubcontractorTest extends AbstractWebTestCase
+class PatchSubcontractorTest extends BaseWebTestCase
 {
     use RefreshDatabaseTrait;
 

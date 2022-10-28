@@ -6,7 +6,10 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-abstract class AbstractWebTestCase extends WebTestCase
+/**
+ * Base test case that provides simple helper functions in order to make HTTP requests and assert on the response.
+ */
+abstract class BaseWebTestCase extends WebTestCase
 {
     private KernelBrowser $client;
 
