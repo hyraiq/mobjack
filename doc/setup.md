@@ -84,9 +84,34 @@ If you want to use Xdebug with Postman, you can enable the XDEBUG_SESSION GET pa
 
 ### PhpStorm
 
-TODO: how to configure the interpreter, test framework and database access
+In order to run tests within PhpStorm, you likely need to set up an interpreter and test runner.
 
-PhpStorm allows you to run individual tests easily. Just open a PhpUnit test, click the green "play" button on the left
+#### PHP Interpreter
+
+An interpreter is the PHP executable for PhpStorm to use to run your tests. We use a remote interpreter in docker
+so that we all run tests on the same version of PHP with the same configuration.
+
+1. Open *Preferences* (called *Settings* in Linux/Windows).
+2. Go to *PHP*.
+3. In the **CLI Interpreter** dropdown, choose the only option
+4. Click the three dots next to the dropdown (`...`)
+5. Ensure the `Server` option is configured (PhpStorm will probably show an error if it's not)
+
+![Interpreter configuration](/resources/phpstorm-interpreter.png)
+
+##### PHP Test Runner
+
+Now that we have an interpreter, we need to set up the test runner.
+
+1. Go to *PHP* -> *Test Frameworks*.
+2. Click the `+` button and choose *PHPUnit by Remote Interpreter*.
+3. From the dropdown, select the docker interpreter, click *Ok*.
+
+![Test framework configuration](/resources/phpstorm-test-framework.png)
+
+#### Running tests
+
+Now you can run individual tests easily. Just open a PhpUnit test, click the green "play" button on the left
 hand side, then choose the "Run ..." option.
 ![Running tests in PhpStorm](/resources/phpstorm-tests.png)
 
@@ -95,3 +120,12 @@ hand side, then choose the "Run ..." option.
 If you want to use Xdebug, choose the "Debug ..." option.
 
 ![Running tests with in PhpStorm](/resources/phpstorm-debug-test.png)
+
+#### Database access
+
+Accessing the development database in PhpStorm is an easy way to check if your endpoints are working. 
+
+1. Click the `Database` toolbar icon on the right hand side
+2. Open a console window for the `app@localhost` database
+
+![Accessing the database in PhpStorm](/resources/phpstorm-database.png)
