@@ -6,15 +6,15 @@ namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
 use Doctrine\ORM\EntityManagerInterface;
-use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
+use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
 class CreateSubcontractorTest extends BaseWebTestCase
 {
-    use RefreshDatabaseTrait;
+    use ReloadDatabaseTrait;
 
     public function testSubcontractorCreatedWithName(): void
     {
-        $response = $this->postRequest('/subcontractors', ['name' => 'Concrete Bros.']);
+        $response = $this->doPostRequest('/subcontractors', ['name' => 'Concrete Bros.']);
 
         static::assertSame(201, $response->getStatusCode());
         $content = $this->decodeResponse($response);
@@ -34,7 +34,7 @@ class CreateSubcontractorTest extends BaseWebTestCase
 
     public function testCannotCreateWithoutName(): void
     {
-        $response = $this->postRequest('/subcontractors', []);
+        $response = $this->doPostRequest('/subcontractors', []);
 
         static::assertSame(400, $response->getStatusCode());
     }

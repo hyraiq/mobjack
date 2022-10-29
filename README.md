@@ -53,6 +53,9 @@ and you'll be up and running in less than 10 minutes.
 2. Follow the [Setup guide](/doc/setup.md) to get up and running
 3. Take on the [Challenge](/doc/task.md)
 
+
+---
+
 ## About us
 
 [ProcurePro](https://procurepro.co) is on a mission to __transform construction procurement__, helping

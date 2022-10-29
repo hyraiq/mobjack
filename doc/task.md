@@ -43,6 +43,12 @@ In order to complete this challenge, we have provided you with the following:
     - An example of how we
         - make an HTTP request during a test; and
         - assert on the state of the database afterwards
+- An endpoint and functional test for listing al subcontractors 
+    ([ListSubcontractorsController](/src/Controller/ListSubcontractorsController.php))
+  - Demonstration of:
+    - how to load entities from the database; and
+    - using response models
+  - This endpoint currently returns a 500 `FinalCost` is not yet implemented
 - A failing functional test for a missing patch subcontractor
   endpoint ([PatchSubcontractorTest](/tests/Functional/PatchSubcontractorTest.php))
     - Showing how to load database fixtures in a test
@@ -51,9 +57,22 @@ In order to complete this challenge, we have provided you with the following:
 - A failing unit test for the FinalCost core function ([FinalCostTest](/tests/Unit/FinalCostTest.php))
     - Showing how to create a unit test
 
-There are three separate tasks for you to complete:
+There are two tasks for you to complete:
 
-### 1. Create an endpoint to PATCH a Subcontractor
+### 1. Implement the `App\Core\FinalCost` core function
+
+As detailed above, the __final cost__ is calculated with:
+
+```
+final cost = price - discount + adjustment + unlet cost
+```
+
+This calculation is simpler than it appears since each property is nullable. Be sure to write solid tests for this one,
+you would hate someone to come along in a few months, change a `+` to a `-` and break the entire application 😱.
+
+Once this is complete, the `ListSubcontractors` endpoint should work successfully.
+
+### 2. Create an endpoint to PATCH a Subcontractor
 
 Create a controller for a `PATCH /subcontractors/{id}` endpoint. It should take a subcontractor id as a path parameter,
 and take the following request body as JSON where every property is __optional__ (i.e. a client should be able
@@ -73,33 +92,3 @@ Note that:
 
 - you already have one failing test for this endpoint (but more may be required)
 - once a property on a Subcontractor has been set once, it should not be possible to set it back to `null`
-
-### 2. Implement the `App\Core\FinalCost` core function
-
-As detailed above, the __final cost__ is calculated with:
-
-```
-final cost = price - discount + adjustment + unlet cost
-```
-
-This calculation is simpler than it appears since each property is nullable. Be sure to write solid tests for this one,
-you would hate someone to come along in a few months, change a `+` to a `-` and break the entire application 😱.
-
-### 3. Create an endpoint to list all Subcontractors
-
-create a controller for `GET /subcontractors`. It should fetch all the Subcontractors from the database and return JSON
-data in the following format:
-
-```
-{
-  name: string
-  price: integer | null
-  discount: integer | null
-  adjustment: integer | null
-  unletCost: integer | null
-  finalCost: integer
-}
-```
-
-Note the addition of `finalCost` to the other Subcontractor properties, which can calculate with the core function from
-step 2 😉.

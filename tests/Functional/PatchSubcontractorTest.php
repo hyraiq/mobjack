@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
-use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
+use Faker\Factory;
+use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
 class PatchSubcontractorTest extends BaseWebTestCase
 {
-    use RefreshDatabaseTrait;
+    use ReloadDatabaseTrait;
 
     public function testPatchSomeProperties(): void
     {
@@ -18,7 +19,7 @@ class PatchSubcontractorTest extends BaseWebTestCase
 
         $originalUnletCost = $subcontractor->getUnletCost();
 
-        $response = $this->patchRequest(
+        $response = $this->doPatchRequest(
             \sprintf('/subcontractors/%s', (string) $subcontractor->getId()),
             [
                 'name'        => 'Concrete Bros.',
