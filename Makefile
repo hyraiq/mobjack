@@ -31,3 +31,7 @@ test-db:
 .PHONY: test-cache
 test-cache:
 	bin/console cache:clear --env test
+
+.PHONY: tw-compile
+tw-compile:
+	npx tailwindcss -i ./public/assets/src/tailwind.css -o public/assets/dist/tailwind.css

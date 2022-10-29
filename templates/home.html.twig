@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class 'bg-gray-100' %}
+
+{% block body %}
+
+    <div class="flex justify-center py-8">
+        <div class="bg-white p-8 w-200 max-w-full rounded-md drop-shadow">
+            <div class="flex justify-center">
+                <img src="images/procurepro-logo.png"
+                     class="max-w-full mb-8"
+                     style="width: 24rem;"
+                     alt="ProcurePro logo"
+                />
+            </div>
+
+            <h1 class="text-2xl font-medium text-center mb-4">
+                Welcome to the ProcurePro Backend Tech Challenge
+            </h1>
+
+            <p class="mb-4">
+                This challenge is designed to accomplish three things:
+            </p>
+
+            <ul class="list-decimal ml-6 mb-4">
+                <li>
+                    Give you a basic understanding of our tools, domain, abstractions and how we write code
+                </li>
+                <li>
+                    Give us an understanding of how you work and if you'll be comfortable in our stack
+                </li>
+                <li>
+                    Give us both something to discuss in the next interview
+                </li>
+            </ul>
+
+            <p class="mb-4">
+                This is a straight forward PHP and Symfony project. All you'll need is Docker and an IDE, and you'll
+                be up and running in less than 10 minutes.
+            </p>
+
+            <ul class="list-decimal ml-6 mb-4">
+                <li>
+                    Have a read of <a href="https://github.com/hyraiq/mobjack/blob/main/doc/concepts.md">Our concepts</a>
+                    to familiarise yourself with our tools and basic abstractions.
+                </li>
+                <li>
+                    Follow the <a href="https://github.com/hyraiq/mobjack/blob/main/doc/setup.md">Setup guide</a>
+                    to get up and running
+                </li>
+                <li>
+                    Take on the <a href="https://github.com/hyraiq/mobjack/blob/main/doc/task.md">Challenge</a>
+                </li>
+            </ul>
+
+            <div class="text-center">
+                <a href="https://github.com/hyraiq/mobjack">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

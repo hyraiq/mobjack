@@ -1,6 +1,6 @@
 # ProcurePro backend technical challenge
 
-[![ProcurePro](/resources/procurepro-logo.png)](https://procurepro.co)
+[![ProcurePro](/public/images/procurepro-logo.png)](https://procurepro.co)
 
 
 ## Overview
