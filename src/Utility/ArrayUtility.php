@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Utility;
 
+/**
+ * A helper class to make php *_array functions work more intuitively, and to provide functions not available in the
+ * PHP core. This class is intentionally untested as it will be covered by everywhere that uses it anyway.
+ */
 final class ArrayUtility
 {
     private function __construct()
