@@ -20,10 +20,15 @@ abstract class BaseWebTestCase extends WebTestCase
         $this->client = static::createClient();
     }
 
+    protected function doGetRequest(string $uri): Response
+    {
+        return $this->jsonRequest('GET', $uri, []);
+    }
+
     /**
      * @param mixed[] $payload
      */
-    protected function postRequest(string $uri, array $payload): Response
+    protected function doPostRequest(string $uri, array $payload): Response
     {
         return $this->jsonRequest('POST', $uri, $payload);
     }
@@ -31,7 +36,7 @@ abstract class BaseWebTestCase extends WebTestCase
     /**
      * @param mixed[] $payload
      */
-    protected function patchRequest(string $uri, array $payload): Response
+    protected function doPatchRequest(string $uri, array $payload): Response
     {
         return $this->jsonRequest('PATCH', $uri, $payload);
     }
