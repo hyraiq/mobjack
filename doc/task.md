@@ -59,7 +59,20 @@ In order to complete this challenge, we have provided you with the following:
 
 There are two tasks for you to complete:
 
-### 1. Create an endpoint to PATCH a Subcontractor
+### 1. Implement the `App\Core\FinalCost` core function
+
+As detailed above, the __final cost__ is calculated with:
+
+```
+final cost = price - discount + adjustment + unlet cost
+```
+
+This calculation is simpler than it appears since each property is nullable. Be sure to write solid tests for this one,
+you would hate someone to come along in a few months, change a `+` to a `-` and break the entire application 😱.
+
+Once this is complete, the `ListSubcontractors` endpoint should work successfully.
+
+### 2. Create an endpoint to PATCH a Subcontractor
 
 Create a controller for a `PATCH /subcontractors/{id}` endpoint. It should take a subcontractor id as a path parameter,
 and take the following request body as JSON where every property is __optional__ (i.e. a client should be able
@@ -79,16 +92,3 @@ Note that:
 
 - you already have one failing test for this endpoint (but more may be required)
 - once a property on a Subcontractor has been set once, it should not be possible to set it back to `null`
-
-### 2. Implement the `App\Core\FinalCost` core function
-
-As detailed above, the __final cost__ is calculated with:
-
-```
-final cost = price - discount + adjustment + unlet cost
-```
-
-This calculation is simpler than it appears since each property is nullable. Be sure to write solid tests for this one,
-you would hate someone to come along in a few months, change a `+` to a `-` and break the entire application 😱.
-
-Once this is complete, the `ListSubcontractors` endpoint should work successfully.
