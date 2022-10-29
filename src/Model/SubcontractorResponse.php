@@ -9,7 +9,7 @@ use App\Entity\Subcontractor;
 
 final class SubcontractorResponse
 {
-    public readonly int $id;
+    public readonly ?int $id;
 
     public readonly string $name;
 
