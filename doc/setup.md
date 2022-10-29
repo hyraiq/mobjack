@@ -17,22 +17,25 @@ To get setup and ready to go, run the following commands in the root of the repo
 ```shell
 # Build the necessary docker containers
 # It might take a few minutes, so grab a coffee (or a beer, it's 5 o'clock somewhere!)
-$ docker composer build
+$ docker compose build
 
 # Start the docker containers so that you can access the environment
 $ docker compose up
 
+# Install PHP dependencies with Composer
+$ docker compose run composer install
+
 # Create the database (but not the schema)
-$ docker compose run make create-db
+$ docker compose run php make create-db
 
 # Run the database migrations to create the schema
-$ docker compose run make migrate
+$ docker compose run php make migrate
 
 # Load some fixtures into the database so that you have something to play with
 $ docker compose run php make fixtures
 
 # Create the test database and schema (fixtures are loaded and refreshed automatically for tests)
-$ docker compose run make test-db
+$ docker compose run php make test-db
 ```
 
 You can now access the application at <http://localhost:8080>!
@@ -49,10 +52,10 @@ $ docker compose run php
 $ docker compose run php sh
 
 # Run the entire test suite
-$ docker compose run make test
+$ docker compose run php make test
 
 # Run Psalm static analysis
-$ docker compose run make psalm
+$ docker compose run php make psalm
 ```
 
 ### Xdebug
