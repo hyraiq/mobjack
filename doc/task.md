@@ -43,7 +43,7 @@ In order to complete this challenge, we have provided you with the following:
     - An example of how we
         - make an HTTP request during a test; and
         - assert on the state of the database afterwards
-- An endpoint and functional test for listing al subcontractors 
+- An endpoint and functional test for listing all subcontractors 
     ([ListSubcontractorsController](/src/Controller/ListSubcontractorsController.php))
   - Demonstration of:
     - how to load entities from the database; and
