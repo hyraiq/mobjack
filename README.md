@@ -44,7 +44,21 @@ For __everyone__, we would expect you to:
 - Write tests
 - Attempt to satisfy the static analysis (we know this can be hard!).
 
+
+---
+
 ## Getting started
+
+When undertaking this challenge, we ask that you __please do not fork this repository__. Instead, please
+[create a private repository from this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+
+When you're finished, invite @tomtomau and @ndench
+[to your repository as collaborators](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+
+![Use this template](/resources/use-this-template.png)
+![Create private repsistory](/resources/create-private-repository.png)
+
+
 
 This is a straight forward PHP and Symfony project. All you'll need is [Docker](https://www.docker.com/) and an IDE,
 and you'll be up and running in less than 10 minutes.
@@ -53,6 +67,8 @@ and you'll be up and running in less than 10 minutes.
 2. Follow the [Setup guide](/doc/setup.md) to get up and running
 3. Take on the [Challenge](/doc/task.md)
 
+
+---
 
 ---
 

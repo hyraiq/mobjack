@@ -2,9 +2,13 @@
 create-db:
 	bin/console doctrine:database:create
 
+.PHONY: drop-db
+drop-db:
+	bin/console doctrine:database:drop --force
+
 .PHONY: migrate
 migrate:
-	bin/console doctrine:migrations:migrate
+	bin/console doctrine:migrations:migrate --no-interaction
 
 .PHONY: cache
 cache:

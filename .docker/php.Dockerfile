@@ -4,7 +4,7 @@ RUN docker-php-ext-install \
     pdo_mysql \
     opcache
 
-RUN apk add --no-cache $PHPIZE_DEPS \
+RUN apk add --no-cache $PHPIZE_DEPS linux-headers \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
@@ -18,7 +18,7 @@ RUN docker-php-ext-install \
     pdo_mysql \
     opcache
 
-RUN apk add --no-cache $PHPIZE_DEPS \
+RUN apk add --no-cache $PHPIZE_DEPS linux-headers \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
