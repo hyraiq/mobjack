@@ -52,8 +52,8 @@ For __everyone__, we would expect you to:
 When undertaking this challenge, we ask that you __please do not fork this repository__. Instead, please
 [create a private repository from this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-When you're finished, invite @tomtomau and @ndench
-[to your repository as collaborators](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+When you're finished, invite [@tomtomau](https://github.com/tomtomau) and [@ndench](https://github.com/ndench)
+to your repository as [collaborators](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
 ![Use this template](/resources/use-this-template.png)
 ![Create private repsistory](/resources/create-private-repository.png)
