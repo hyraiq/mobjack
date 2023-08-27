@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d50c7e4e-b8e7-4545-bdcc-3d0132f57320",
+		"_postman_id": "26f2ed69-828b-412c-a8db-34585b5752a9",
 		"name": "Mobjack",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19379475"
@@ -29,6 +29,42 @@
 					"port": "8080",
 					"path": [
 						"subcontractors"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "_",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch subcontractor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Concrete Bros. PTY LTD\",\n    \"price\": 1500000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/subcontractors/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subcontractors",
+						"15"
 					],
 					"query": [
 						{
