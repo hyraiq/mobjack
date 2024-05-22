@@ -3,6 +3,8 @@
         errorLevel="1"
         strictBinaryOperands="true"
         findUnusedPsalmSuppress="true"
+        findUnusedBaselineEntry="false"
+        findUnusedCode="false"
         checkForThrowsDocblock="true"
         checkForThrowsInGlobalScope="true"
         ensureArrayStringOffsetsExist="true"

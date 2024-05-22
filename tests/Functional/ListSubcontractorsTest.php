@@ -26,7 +26,7 @@ class ListSubcontractorsTest extends BaseWebTestCase
 
         $knownSubbieDetails = ArrayUtility::arrayFind(
             $content,
-            fn(mixed $data) => is_array($data) && $data['id'] ?? null === $knownSubbie->getId(),
+            fn(mixed $data) => is_array($data) && (($data['id'] ?? null) === $knownSubbie->getId()),
         );
 
         static::assertIsArray($knownSubbieDetails);
