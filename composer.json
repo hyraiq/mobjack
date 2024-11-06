@@ -78,6 +78,7 @@
         }
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "fakerphp/faker": "^1.20",
         "hautelook/alice-bundle": "^2.11",
         "phpunit/phpunit": "^9.5",
