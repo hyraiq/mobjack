@@ -1,4 +1,4 @@
-FROM php:8.1-fpm-alpine as fpm
+FROM php:8.3-fpm-alpine AS fpm
 
 RUN docker-php-ext-install \
     pdo_mysql \
@@ -12,7 +12,7 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 COPY config/php.xdebug.ini "$PHP_INI_DIR/conf.d/xdebug.ini"
 
 
-FROM php:8.1-alpine as cli
+FROM php:8.3-alpine AS cli
 
 RUN docker-php-ext-install \
     pdo_mysql \

@@ -1,4 +1,3 @@
-version: '3.9'
 services:
     nginx:
         image: nginx:stable-alpine
@@ -50,6 +49,9 @@ services:
         working_dir: /var/www/html
         volumes:
             - './:/var/www/html'
+            - './.docker/entrypoint.sh:/pp-entrypoint.sh'
+        entrypoint: ['/pp-entrypoint.sh']
+        command: ['composer']
         profiles: ['composer']
 
 # We don't use named volumes because they're very slow on MacOS
