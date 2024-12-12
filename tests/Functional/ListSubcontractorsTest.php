@@ -6,6 +6,7 @@ namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
 use App\Utility\ArrayUtility;
+use Hautelook\AliceBundle\PhpUnit\FixtureStore;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
 class ListSubcontractorsTest extends BaseWebTestCase
@@ -15,7 +16,7 @@ class ListSubcontractorsTest extends BaseWebTestCase
     public function testListSubcontractors(): void
     {
         /** @var Subcontractor $knownSubbie */
-        $knownSubbie = static::$fixtures['subcontractor_known'];
+        $knownSubbie = FixtureStore::getFixtures()['subcontractor_known'];
 
         $response = $this->doGetRequest('/subcontractors');
 

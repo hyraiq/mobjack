@@ -6,6 +6,7 @@ namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
 use Faker\Factory;
+use Hautelook\AliceBundle\PhpUnit\FixtureStore;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 
 class PatchSubcontractorTest extends BaseWebTestCase
@@ -15,7 +16,7 @@ class PatchSubcontractorTest extends BaseWebTestCase
     public function testPatchSomeProperties(): void
     {
         /** @var Subcontractor $subcontractor */
-        $subcontractor = static::$fixtures['subcontractor_some_1'];
+        $subcontractor = FixtureStore::getFixtures()['subcontractor_some_1'];
 
         $originalUnletCost = $subcontractor->getUnletCost();
 
