@@ -6,11 +6,12 @@ namespace App\Tests\Functional;
 
 use App\Entity\Subcontractor;
 use Doctrine\ORM\EntityManagerInterface;
-use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
+use Zenstruck\Foundry\Test\Factories;
+use Zenstruck\Foundry\Test\ResetDatabase;
 
 class CreateSubcontractorTest extends BaseWebTestCase
 {
-    use ReloadDatabaseTrait;
+    use Factories, ResetDatabase;
 
     public function testSubcontractorCreatedWithName(): void
     {

@@ -33,9 +33,6 @@ $ docker compose run php make migrate
 
 # Load some fixtures into the database so that you have something to play with
 $ docker compose run php make fixtures
-
-# Create the test database and schema (fixtures are loaded and refreshed automatically for tests)
-$ docker compose run php make test-db
 ```
 
 You can now access the application at <http://localhost:8080>!

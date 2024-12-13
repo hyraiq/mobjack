@@ -24,13 +24,7 @@ psalm:
 
 .PHONY: fixtures
 fixtures:
-	bin/console hautelook:fixtures:load --no-bundles --no-interaction
-
-.PHONY: test-db
-test-db:
-	bin/console doctrine:database:drop --env test --force
-	bin/console doctrine:database:create --env test
-	bin/console doctrine:schema:create --env test
+	bin/console doctrine:fixtures:load --no-interaction
 
 .PHONY: test-cache
 test-cache:

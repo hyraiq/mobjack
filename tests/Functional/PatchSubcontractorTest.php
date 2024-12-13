@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional;
 
-use App\Entity\Subcontractor;
-use Faker\Factory;
-use Hautelook\AliceBundle\PhpUnit\FixtureStore;
-use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
+use App\Factory\SubcontractorFactory;
+use Zenstruck\Foundry\Test\Factories;
+use Zenstruck\Foundry\Test\ResetDatabase;
 
 class PatchSubcontractorTest extends BaseWebTestCase
 {
-    use ReloadDatabaseTrait;
+    use Factories, ResetDatabase;
 
     public function testPatchSomeProperties(): void
     {
-        /** @var Subcontractor $subcontractor */
-        $subcontractor = FixtureStore::getFixtures()['subcontractor_some_1'];
-
-        $originalUnletCost = $subcontractor->getUnletCost();
+        $subcontractor = SubcontractorFactory::createOne([
+            'name'      => 'Concrete Bros.',
+            'price'     => 50_000_00,
+            'unletCost' => 500_00,
+        ]);
 
         $response = $this->doPatchRequest(
             \sprintf('/subcontractors/%s', (string) $subcontractor->getId()),
@@ -35,6 +35,6 @@ class PatchSubcontractorTest extends BaseWebTestCase
         static::assertSame(560_000_00, $subcontractor->getPrice());
         static::assertNull($subcontractor->getDiscount());
         static::assertSame(15_000_00, $subcontractor->getAdjustment());
-        static::assertSame($originalUnletCost, $subcontractor->getUnletCost());
+        static::assertSame(500_00, $subcontractor->getUnletCost());
     }
 }

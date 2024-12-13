@@ -4,26 +4,40 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional;
 
-use App\Entity\Subcontractor;
+use App\Factory\SubcontractorFactory;
 use App\Utility\ArrayUtility;
-use Hautelook\AliceBundle\PhpUnit\FixtureStore;
-use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
+use Zenstruck\Foundry\Test\Factories;
+use Zenstruck\Foundry\Test\ResetDatabase;
+use function Zenstruck\Foundry\faker;
 
 class ListSubcontractorsTest extends BaseWebTestCase
 {
-    use ReloadDatabaseTrait;
+    use Factories, ResetDatabase;
 
     public function testListSubcontractors(): void
     {
-        /** @var Subcontractor $knownSubbie */
-        $knownSubbie = FixtureStore::getFixtures()['subcontractor_known'];
+        // A few random subbies
+        SubcontractorFactory::createMany(10, [
+            'price'      => faker()->numberBetween(10_000_00, 10_000_000_00),
+            'discount'   => faker()->numberBetween(1_000_00, 100_000_00),
+            'adjustment' => faker()->numberBetween(1_000_00, 100_000_00),
+            'unletCost'  => faker()->numberBetween(100_00, 100_000_00),
+        ]);
+
+        // Subbie with known values
+        $knownSubbie = SubcontractorFactory::createOne([
+            'name'      => 'Concrete Bros.',
+            'price'     => 50_000_00,
+            'discount'  => 5_000_00,
+            'unletCost' => 500_00,
+        ]);
 
         $response = $this->doGetRequest('/subcontractors');
 
         static::assertSame(200, $response->getStatusCode());
         $content = $this->decodeResponse($response);
 
-        static::assertCount(13, $content);
+        static::assertCount(11, $content);
 
         $knownSubbieDetails = ArrayUtility::arrayFind(
             $content,
