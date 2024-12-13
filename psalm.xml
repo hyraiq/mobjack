@@ -26,11 +26,11 @@
         <!-- LogicExceptions are not meant to be caught or annotated -->
         <class name="LogicException" />
         <!-- Symfony catches and handles HttpExceptions for us -->
-        <class name="Symfony\Component\HttpKernel\Exception\BadRequestHttpException" />
+        <classAndDescendants name="Symfony\Component\HttpKernel\Exception\HttpException" />
     </ignoreExceptions>
 
     <issueHandlers>
-        <!-- Sometime we need @var to make PhpStorm stfu -->
+        <!-- Sometimes we need @var to make PhpStorm stfu -->
         <UnnecessaryVarAnnotation errorLevel="suppress" />
 
         <MissingThrowsDocblock>
